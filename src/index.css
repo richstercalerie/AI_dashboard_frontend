@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-50 text-neutral-800 dark:bg-neutral-900 dark:text-neutral-100;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium tracking-tight;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/80 dark:bg-neutral-800/80 backdrop-blur-md rounded-xl shadow-glass border border-white/20 dark:border-neutral-700/30;
+  }
+  
+  .gradient-bg {
+    @apply bg-gradient-primary;
+  }
+  
+  .admin-layout {
+    @apply min-h-screen;
+  }
+  
+  .sidebar-link {
+    @apply flex items-center gap-3 px-4 py-3 rounded-lg text-neutral-600 dark:text-neutral-300 hover:bg-primary-100/80 dark:hover:bg-primary-900/20 transition-all;
+  }
+  
+  .sidebar-link.active {
+    @apply bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 font-medium;
+  }
+  
+  .status-badge {
+    @apply px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  
+  .status-badge.high-risk {
+    @apply bg-danger-100 text-danger-700 dark:bg-danger-900/30 dark:text-danger-300;
+  }
+  
+  .status-badge.medium-risk {
+    @apply bg-warning-100 text-warning-700 dark:bg-warning-900/30 dark:text-warning-300;
+  }
+  
+  .status-badge.low-risk {
+    @apply bg-success-100 text-success-700 dark:bg-success-900/30 dark:text-success-300;
+  }
+  
+  .data-card {
+    @apply glass-card p-5;
+  }
+  
+  .kanban-column {
+    @apply glass-card p-4 min-h-[500px] w-full;
+  }
+  
+  .kanban-card {
+    @apply bg-white dark:bg-neutral-800 p-3 rounded-lg shadow mb-2 cursor-pointer border border-neutral-200 dark:border-neutral-700;
+  }
+}
