@@ -60,6 +60,7 @@ const ChurnPrediction: React.FC = () => {
         setLoading(true);
         const token=localStorage.getItem('token');
         const response = await axios.get('https://ai-personalised-dashboard.vercel.app/api/admin/customers', {
+          withCredentials:true,
           headers: {
           'Content-Type': 'application/json',  
       Authorization: `Bearer ${token}`,

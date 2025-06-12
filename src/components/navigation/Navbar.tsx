@@ -32,6 +32,7 @@ const Navbar: React.FC = () => {
         console.log(localStorage.getItem('token'));
         const token=localStorage.getItem('token');
         const response = await axios.get('https://ai-personalised-dashboard.vercel.app/api/auth/getUserData', {
+          withCredentials:true,
           headers: {
             'Content-Type': 'application/json',
               Authorization: `Bearer ${token}`,

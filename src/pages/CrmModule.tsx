@@ -58,6 +58,7 @@ const CrmModule: React.FC = () => {
       setLoading(true);
       const token=localStorage.getItem('token');
       const response = await axios.get('https://ai-personalised-dashboard.vercel.app/api/admin/customers', {
+        withCredentials:true,
         headers: {
           'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
@@ -132,6 +133,7 @@ const CrmModule: React.FC = () => {
     if (!validateForm()) return;
 
     try {
+      const token=localStorage.getItem('token');
       await axios.post('https://ai-personalised-dashboard.vercel.app/api/customer', {
         id: formData.id,
         name: formData.name,
@@ -149,6 +151,7 @@ const CrmModule: React.FC = () => {
         Policy_Sales_Channel: Number(formData.Policy_Sales_Channel),
         Vintage: Number(formData.Vintage)
       }, {
+        withCredentials:true,
         headers: {
           'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
