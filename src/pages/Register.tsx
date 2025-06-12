@@ -60,8 +60,9 @@ const Register = () => {
         password: formData.password,
         isAdmin: formData.isAdmin
       };
-
+      const token=localStorage.getItem('token');
       const response = await axios.post('https://ai-personalised-dashboard.vercel.app/api/auth/register', registerData, { headers: {
+      'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
     },});
 

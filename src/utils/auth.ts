@@ -104,6 +104,7 @@ export const authAPI = {
 
   async logout(): Promise<AuthResponse> {
     try {
+      
       const response = await fetch(`${API_BASE_URL}/logout`, {
         method: 'POST',
         headers: {

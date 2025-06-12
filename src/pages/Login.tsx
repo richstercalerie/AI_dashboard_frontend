@@ -44,10 +44,12 @@ const Login: React.FC = () => {
     setError('');
     
     try {
+      const token=localStorage.getItem('token');
       const response = await axios.post('https://ai-personalised-dashboard.vercel.app/api/auth/login', {
         email,
         password
       }, { headers: {
+        'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
     }, });
       console.log('Login response:', response.data);

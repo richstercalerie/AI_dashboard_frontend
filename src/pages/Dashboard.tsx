@@ -73,6 +73,7 @@ const Dashboard: React.FC = () => {
     const fetchData = async () => {
       try {
         // Fetch SHAP summary
+        const token=localStorage.getItem('token');
         const shapResponse = await axios.get('https://sbilife-churnmodel.onrender.com/shap_summary');
         console.log('SHAP summary response:', shapResponse.data);
         const shapSummary = shapResponse.data.shap_summary;
@@ -84,6 +85,7 @@ const Dashboard: React.FC = () => {
         // Fetch customers
         const customersResponse = await axios.get('https://ai-personalised-dashboard.vercel.app/api/admin/customers', {
           headers: {
+            'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
     },
         });
