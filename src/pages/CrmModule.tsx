@@ -57,7 +57,9 @@ const CrmModule: React.FC = () => {
     try {
       setLoading(true);
       const response = await axios.get('https://ai-personalised-dashboard.vercel.app/api/admin/customers', {
-        withCredentials: true
+        withCredentials: true,headers: {
+            'Content-Type': 'application/json'
+          }
       });
       console.log('Customers response:', response.data); // Debug raw API data
       const normalizedCustomers = response.data.map((customer: any) => {
@@ -145,7 +147,9 @@ const CrmModule: React.FC = () => {
         Policy_Sales_Channel: Number(formData.Policy_Sales_Channel),
         Vintage: Number(formData.Vintage)
       }, {
-        withCredentials: true
+        withCredentials: true,headers: {
+            'Content-Type': 'application/json'
+          }
       });
       setIsModalOpen(false);
       setFormData({

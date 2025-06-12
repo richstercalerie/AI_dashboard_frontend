@@ -83,7 +83,9 @@ const Dashboard: React.FC = () => {
 
         // Fetch customers
         const customersResponse = await axios.get('https://ai-personalised-dashboard.vercel.app/api/admin/customers', {
-          withCredentials: true
+          withCredentials: true,headers: {
+            'Content-Type': 'application/json'
+          }
         });
         console.log('Customers response:', customersResponse.data);
         const normalizedCustomers = customersResponse.data.map((customer: any) => {

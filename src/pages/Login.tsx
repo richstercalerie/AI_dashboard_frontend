@@ -47,7 +47,9 @@ const Login: React.FC = () => {
       const response = await axios.post('https://ai-personalised-dashboard.vercel.app/api/auth/login', {
         email,
         password
-      }, { withCredentials: true });
+      }, { withCredentials: true,headers: {
+            'Content-Type': 'application/json'
+          } });
       console.log('Login response:', response.data);
       if (response.data.success) {
         const { token } = response.data;
