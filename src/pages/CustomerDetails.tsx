@@ -58,9 +58,9 @@ const CustomerDetails: React.FC = () => {
     const fetchCustomer = async () => {
       try {
         const response = await axios.get(`https://ai-personalised-dashboard.vercel.app/api/admin/customers/${customerId}`, {
-          withCredentials: true,headers: {
-            'Content-Type': 'application/json'
-          }
+          headers: {
+      Authorization: `Bearer ${token}`,
+    },
         });
         console.log('Customer response:', response.data);
         const customerData = response.data;
