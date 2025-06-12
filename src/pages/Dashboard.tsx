@@ -73,7 +73,11 @@ const Dashboard: React.FC = () => {
     const fetchData = async () => {
       try {
         // Fetch SHAP summary
-        const token=localStorage.getItem('token');
+        const jsontoken = localStorage.getItem('token');
+      let token = '';
+      if (jsontoken !== null) {
+        token = JSON.parse(jsontoken);
+      }
         const shapResponse = await axios.get('https://sbilife-churnmodel.onrender.com/shap_summary');
         console.log('SHAP summary response:', shapResponse.data);
         const shapSummary = shapResponse.data.shap_summary;

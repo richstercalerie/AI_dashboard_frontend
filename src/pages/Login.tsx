@@ -44,7 +44,11 @@ const Login: React.FC = () => {
     setError('');
     
     try {
-      const token=localStorage.getItem('token');
+      const jsontoken = localStorage.getItem('token');
+      let token = '';
+      if (jsontoken !== null) {
+        token = JSON.parse(jsontoken);
+      }
       const response = await axios.post('https://ai-personalised-dashboard.vercel.app/api/auth/login', {
         email,
         password

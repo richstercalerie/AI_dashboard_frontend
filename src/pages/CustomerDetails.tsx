@@ -57,7 +57,11 @@ const CustomerDetails: React.FC = () => {
   useEffect(() => {
     const fetchCustomer = async () => {
       try {
-        const token=localStorage.getItem('token');
+        const jsontoken = localStorage.getItem('token');
+      let token = '';
+      if (jsontoken !== null) {
+        token = JSON.parse(jsontoken);
+      }
         const response = await axios.get(`https://ai-personalised-dashboard.vercel.app/api/admin/customers/${customerId}`, {
           withCredentials:true,
           headers: {

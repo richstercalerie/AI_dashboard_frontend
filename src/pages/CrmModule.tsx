@@ -56,7 +56,11 @@ const CrmModule: React.FC = () => {
   const fetchCustomers = async () => {
     try {
       setLoading(true);
-      const token=localStorage.getItem('token');
+      const jsontoken = localStorage.getItem('token');
+      let token = '';
+      if (jsontoken !== null) {
+        token = JSON.parse(jsontoken);
+      }
       const response = await axios.get('https://ai-personalised-dashboard.vercel.app/api/admin/customers', {
         withCredentials:true,
         headers: {
@@ -133,7 +137,11 @@ const CrmModule: React.FC = () => {
     if (!validateForm()) return;
 
     try {
-      const token=localStorage.getItem('token');
+      const jsontoken = localStorage.getItem('token');
+      let token = '';
+      if (jsontoken !== null) {
+        token = JSON.parse(jsontoken);
+      }
       await axios.post('https://ai-personalised-dashboard.vercel.app/api/customer', {
         id: formData.id,
         name: formData.name,
