@@ -30,7 +30,7 @@ const Navbar: React.FC = () => {
     const fetchUserData = async () => {
       try {
         console.log(localStorage.getItem('token'));
-        const response = await axios.get('http://localhost:8181/api/auth/getUserData', {
+        const response = await axios.get('https://ai-personalised-dashboard.vercel.app/api/auth/getUserData', {
           withCredentials: true,
         });
         console.log('User data response:', response.data);
@@ -63,7 +63,7 @@ const Navbar: React.FC = () => {
   const handleLogout = async () => {
     try {
       const response = await axios.get(
-        'http://localhost:8181/api/auth/logout',
+        'https://ai-personalised-dashboard.vercel.app/api/auth/logout',
         { withCredentials: true }
       );
       console.log('Logout response:', response.data);
